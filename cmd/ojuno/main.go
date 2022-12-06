@@ -14,13 +14,12 @@ import (
 	"github.com/OmniFlix/omniflixhub/app"
 	
 	internaldb "github.com/PrithviDevs/ojuno/database"
-	"github.com/PrithviDevs/ojuno/modules"
 )
 
 func main() {
 	parseCfg := parsetypes.NewConfig().
 		WithEncodingConfigBuilder(config.MakeEncodingConfig(getBasicMangers())). // TODO: check
-		WithRegistrar(modules.NewModuleRegistrar()).
+		WithRegistrar(nil). // modules.NewModuleRegistrar()
 		WithDBBuilder(internaldb.Builder)
 	
 	cfg := cmd.NewConfig("ojuno").
