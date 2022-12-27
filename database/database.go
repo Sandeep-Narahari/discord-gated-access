@@ -2,7 +2,7 @@ package database
 
 import (
 	"fmt"
-	
+
 	db "github.com/forbole/juno/v3/database"
 	"github.com/forbole/juno/v3/database/postgresql"
 	juno "github.com/forbole/juno/v3/types"
@@ -21,7 +21,7 @@ func Cast(database db.Database) *Db {
 	if !ok {
 		panic(fmt.Errorf("database is not a Ajuno instance"))
 	}
-	
+
 	return ajunoDb
 }
 
@@ -30,12 +30,14 @@ func Builder(ctx *db.Context) (db.Database, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+	fmt.Println("DATABASE", database)
+
 	psqlDb, ok := (database).(*postgresql.Database)
+	fmt.Println("PSQLDB", psqlDb)
 	if !ok {
 		return nil, fmt.Errorf("invalid database type")
 	}
-	
+
 	return &Db{
 		Database: psqlDb,
 		Sqlx:     sqlx.NewDb(psqlDb.Sql, "postgresql"),

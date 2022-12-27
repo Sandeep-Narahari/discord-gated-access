@@ -1,10 +1,12 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	junomessages "github.com/forbole/juno/v3/modules/messages"
-	
+
 	"github.com/OmniFlix/marketplace/x/marketplace/types"
 	onft "github.com/OmniFlix/onft/types"
 )
@@ -15,6 +17,7 @@ var omniFlixMessageAddressesParser = junomessages.JoinMessageParsers(
 )
 
 func MarketPlaceAddressesParser(cdc codec.Codec, cosmosMsg sdk.Msg) ([]string, error) {
+	fmt.Println("Codec", cdc)
 	switch msg := cosmosMsg.(type) {
 	case *types.MsgListNFT:
 		return []string{msg.Owner}, nil

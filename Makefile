@@ -17,16 +17,16 @@ BUILD_FLAGS := -ldflags '$(LD_FLAGS)'
 
 build: go.sum
 ifeq ($(OS),Windows_NT)
-	@echo "building ojuno binary..."
-	@go build -mod=readonly $(BUILD_FLAGS) -o build/ojuno.exe ./cmd/ojuno
+	@echo "building autox binary..."
+	@go build -mod=readonly $(BUILD_FLAGS) -o build/autox.exe ./cmd/autox
 else
-	@echo "building ojuno binary..."
-	@go build -mod=readonly $(BUILD_FLAGS) -o build/ojuno ./cmd/ojuno
+	@echo "building autox binary..."
+	@go build -mod=readonly $(BUILD_FLAGS) -o build/autox ./cmd/autox
 endif
 
 install: go.sum
-	@echo "installing ojuno binary..."
-	@go install -mod=readonly $(BUILD_FLAGS) ./cmd/ojuno
+	@echo "installing autox binary..."
+	@go install -mod=readonly $(BUILD_FLAGS) ./cmd/autox
 
 ###############################################################################
 # Tests / CI

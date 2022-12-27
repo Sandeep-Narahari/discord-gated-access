@@ -1,6 +1,6 @@
 package database
 
-import "github.com/PrithviDevs/ojuno/types"
+import "github.com/AutonomyNetwork/iam/types"
 
 func (db Db) SaveCommunity(community types.Community) error {
 	stmt := `
