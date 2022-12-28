@@ -92,9 +92,9 @@ func (m *Module) GetAddressAndValidate() {
 }
 
 func (m *Module) VerifyNft(address []string, gatedList []string) {
-	var nft = Nfts()
+	var nfts = Nfts()
 	var Gated = m.db.GetGatedList()
-	for i, nft := range address {
+	for i, nft := range nfts {
 		for j, c := range Gated {
 			if strings.HasPrefix(nft, Gated[j].Collection_id) {
 				var discordid = m.db.GetDiscordId(nft[i].Address)

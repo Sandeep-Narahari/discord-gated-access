@@ -13,8 +13,8 @@ type nft struct {
 }
 type GatedList struct {
 	Collection_id string
-	role_name     string
-	roleid        string
+	Role_name     string
+	Roleid        string
 }
 
 func (db *Db) CheckDiscordId(discordId string) string {
@@ -74,7 +74,7 @@ func (db *Db) GetGatedList() []GatedList {
 			panic(err.Error())
 		}
 
-		communityArray = append(communityArray, GatedList{collection_id: collection_id, roleid: roleid, role_name: role_name})
+		communityArray = append(communityArray, GatedList{Collection_id: collection_id, Roleid: roleid, Role_name: role_name})
 
 	}
 

@@ -18,6 +18,7 @@ var omniFlixMessageAddressesParser = junomessages.JoinMessageParsers(
 
 func MarketPlaceAddressesParser(cdc codec.Codec, cosmosMsg sdk.Msg) ([]string, error) {
 	fmt.Println("Codec", cdc)
+	fmt.Println("Cosmos MSG",)
 	switch msg := cosmosMsg.(type) {
 	case *types.MsgListNFT:
 		return []string{msg.Owner}, nil
