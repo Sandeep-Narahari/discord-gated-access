@@ -11,8 +11,8 @@ type nft struct {
 	creator       string
 	collection_id string
 }
-type gatedList struct {
-	collection_id string
+type GatedList struct {
+	Collection_id string
 	role_name     string
 	roleid        string
 }
@@ -59,21 +59,22 @@ func (db *Db) GetAllNftFromAddress(address string) []string {
 	}
 	return nfts
 }
-func (db *Db) GetGatedList() []string {
+func (db *Db) GetGatedList() []GatedList {
 	q, err := db.Database.Sql.Query(`SELECT collection_id,roleid,role_name FROM gatedList`)
 	if err != nil {
 		log.Fatalf("%s", err.Error())
 		panic(err.Error())
 	}
 	defer q.Close()
-	var communityArray []string
+	var communityArray []GatedList
 	for q.Next() {
 		var collection_id, roleid, role_name string
 		if err := q.Scan(&collection_id, &roleid, &role_name); err != nil {
 			log.Fatalf("%s", err.Error())
 			panic(err.Error())
 		}
-		communityArray = append(communityArray, collection_id)
+
+		communityArray = append(communityArray, GatedList{collection_id: collection_id, roleid: roleid, role_name: role_name})
 
 	}
 
@@ -81,6 +82,19 @@ func (db *Db) GetGatedList() []string {
 	return communityArray
 }
 
-// func (db *Db) GetDiscordId(address string) {
-// 	q, err := db.Database.Sql.Query(`SELECT `)
-// }
+func (db *Db) GetDiscordId(address string) string {
+	q, err := db.Database.Sql.Query(`SELECT discordid FROM backend WHERE address=$1`, address)
+	if err != nil {
+		log.Fatalf("%s", err.Error())
+		panic(err.Error())
+	}
+	defer q.Close()
+	var discordId string
+	if q.Next() {
+		if err := q.Scan(&discordId); err != nil {
+			panic(err.Error())
+		}
+
+	}
+	return discordId
+}

@@ -51,7 +51,6 @@ func (r *ModuleRegistar) BuildModules(ctx registrar.Context) modules.Modules {
 
 	// Calling Channels
 	BotConnection.Channels()
-
 	BotConnection.AddHandleMsgCreate()
 	BotConnection.GetAddressAndValidate()
 
