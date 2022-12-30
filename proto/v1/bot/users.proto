@@ -1,0 +1,71 @@
+syntax="proto3";
+package v1;
+option go_package = "github.com/AutonomyNetwork/iam/types/bot";
+import "google/api/annotations.proto";
+
+// User Information
+
+message  User {
+  int64 id = 1;
+  string discord_name = 2;
+  string discord_id = 3;
+  string account_address = 4;
+}
+
+service UserService {
+   rpc CreateUser(CreateUserRequest) returns(CreateUserResponse){
+     option (google.api.http) = {
+       post:"/v1/users/create",
+       body:"*"
+     };
+   }
+
+   rpc Users(GetUsersRequest) returns(GetUsersResponse){
+     option(google.api.http) = {
+       get:"/v1/users",  // TODO: add paginations
+     };
+   }
+
+   rpc UserByDiscordID(GetUserByDiscordIDRequest) returns(GetUserResponse){
+     option(google.api.http)={
+       get:"/v1/users/{discord_id}"
+     };
+   }
+
+   rpc UserByAccountAddress(GetUserByAccountAddressRequest) returns (GetUserResponse){
+     option(google.api.http) = {
+       get:"/v1/users/{address}"
+     };
+   }
+
+}
+
+message CreateUserRequest {
+  string discord_id=1;
+  string account_address =2;
+  string discord_user_name=3;
+}
+
+message CreateUserResponse{
+  int64 id=1;
+}
+
+
+
+message GetUsersRequest{
+}
+
+message GetUsersResponse{
+  repeated User users =1;
+}
+
+message GetUserByDiscordIDRequest {
+  string discord_id =1;
+}
+
+message  GetUserByAccountAddressRequest  {
+  string address =1;
+}
+message GetUserResponse {
+  User user =1;
+}

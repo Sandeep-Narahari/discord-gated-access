@@ -18,13 +18,12 @@ require (
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/rs/zerolog v1.27.0
 	github.com/spf13/cobra v1.6.1
-	golang.org/x/tools v0.1.12
-	google.golang.org/grpc v1.50.1
+	google.golang.org/grpc v1.51.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
-	github.com/cosmos/gogoproto v1.4.3 // indirect
+	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/tendermint/spm v0.1.9 // indirect
 	github.com/zondax/ledger-go v0.14.0 // indirect
 )
@@ -34,7 +33,6 @@ require (
 	github.com/99designs/keyring v1.1.6 // indirect
 	github.com/ChainSafe/go-schnorrkel v0.0.0-20200405005733-88cbf1b4c40d // indirect
 	github.com/OmniFlix/omniflixhub v0.8.0
-	github.com/Stride-Labs/stride/v4 v4.0.3
 	github.com/Workiva/go-datastructures v1.0.53 // indirect
 	github.com/armon/go-metrics v0.4.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
@@ -50,7 +48,6 @@ require (
 	github.com/cosmos/iavl v0.19.4 // indirect
 	github.com/cosmos/ibc-go/v3 v3.4.0 // indirect
 	github.com/cosmos/ledger-cosmos-go v0.11.2-0.20220811092532-036a277666f3 // indirect
-	github.com/cosmos/ledger-go v0.9.2 // indirect
 	github.com/danieljoos/wincred v1.0.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgraph-io/badger/v2 v2.2007.4 // indirect
@@ -134,12 +131,12 @@ require (
 	go.etcd.io/bbolt v1.3.6 // indirect
 	golang.org/x/crypto v0.1.0 // indirect
 	golang.org/x/exp v0.0.0-20220722155223-a9213eeb770e // indirect
-	golang.org/x/net v0.1.0 // indirect
-	golang.org/x/sync v0.0.0-20220819030929-7fc1605a5dde // indirect
-	golang.org/x/sys v0.1.0 // indirect
-	golang.org/x/term v0.1.0 // indirect
-	golang.org/x/text v0.4.0 // indirect
-	google.golang.org/genproto v0.0.0-20221014213838-99cd37c6964a // indirect
+	golang.org/x/net v0.4.0 // indirect
+	golang.org/x/sync v0.1.0 // indirect
+	golang.org/x/sys v0.3.0 // indirect
+	golang.org/x/term v0.3.0 // indirect
+	golang.org/x/text v0.5.0 // indirect
+	google.golang.org/genproto v0.0.0-20221227171554-f9683d7f8bef // indirect
 	google.golang.org/protobuf v1.28.2-0.20220831092852-f930b1dc76e8 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

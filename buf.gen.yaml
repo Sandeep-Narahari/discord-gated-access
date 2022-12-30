@@ -1,0 +1,11 @@
+version: v1
+plugins:
+  - name: go
+    out: types/bot
+    opt: paths=source_relative
+  - name: go-grpc
+    out: types/bot
+    opt: paths=source_relative
+  - name: grpc-gateway
+    out: types/bot
+    opt: paths=source_relative

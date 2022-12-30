@@ -1,0 +1,117 @@
+syntax="proto3";
+package v1.bot;
+
+option go_package ="/home/sandeep/go/src/github.com/AutonomyNetwork/iam/github.com/AutonomyNetwork";
+import "google/api/annotations.proto";
+
+
+// Gated Communities Based on NFT
+message Community {
+  int64 id =1;
+  string discord_category_id =2;
+  string discord_category_name = 3;
+  string access_role_id = 4;
+  string access_role_name = 5;
+  bool approved = 6;
+  string gated_collection_id = 7;
+  bool ft_access = 8;
+  string ft_amount = 9;
+  string owner_role_id  = 10;
+  string owner_role_name  = 11;
+  string owner_id = 12;
+}
+
+
+
+service CommunityServices{
+  rpc CreateCommunity(CreateCommunityRequest) returns(CreateCommunityResponse){
+    option(google.api.http)= {
+      post:"/v1/community/create"
+      body:"*"
+    };
+  }
+
+  rpc UpdateCommunity(UpdateCommunityRequest) returns (UpdateCommunityResponse){
+    option(google.api.http) = {
+      put:"/v1/community/update"
+      body:"*"
+    };
+  }
+
+  rpc Communities(GetCommunitiesRequest) returns(GetCommunitiesResponse){
+    option(google.api.http)= {
+      get:"/v1/communities"
+    };
+  }
+
+  rpc CommunityById(GetCommunityByIDRequest) returns(GetCommunityResponse){
+    option(google.api.http) = {
+      get:"/v1/community_by_id/{id}",
+    };
+  }
+
+  rpc CommunityByCollectionId(GetCommunityByCollectionIdRequest) returns(GetCommunityResponse){
+    option(google.api.http)= {
+      get:"/v1/community_by_collection_id/{collection_id}"
+    };
+  }
+
+  rpc CommunityByNFTRoleId(GetCommunityByNFTRoleIdRequest) returns (GetCommunityResponse){
+    option(google.api.http)= {
+      get:"/v1/community_by_nft_role/{access_role_id}"
+    };
+  }
+
+  rpc CommunityByDiscordCategoryID(GetCommunityByDiscordCategoryIDRequest) returns(GetCommunityResponse){
+    option(google.api.http)= {
+      get:"/v1/community_by_discord_category_id/{discord_category_id}"
+    };
+  }
+}
+
+message  CreateCommunityRequest {
+    string user_discord_id =1;
+    string discord_category_name =2;
+    string access_role_name = 3;
+    string account_address =4;
+    string gated_collection_id = 5;
+}
+
+message CreateCommunityResponse {
+  int64  id = 1;
+}
+
+message UpdateCommunityRequest{
+  string user_discord_id =1;
+  int64  gated_community_id =2;
+  bool pending = 3;
+}
+
+message UpdateCommunityResponse {
+  int64 id =1;
+}
+message GetCommunitiesRequest{}
+
+message GetCommunitiesResponse{
+  repeated Community communities =1;
+}
+
+message GetCommunityByIDRequest {
+  int64 id =1;
+}
+
+message GetCommunityByCollectionIdRequest{
+  string collection_id =1;
+}
+
+message  GetCommunityByNFTRoleIdRequest{
+  string access_role_id =1;
+}
+
+message GetCommunityByDiscordCategoryIDRequest{
+  string discord_category_id = 1;
+}
+
+message GetCommunityResponse {
+  Community community =1;
+}

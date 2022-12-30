@@ -28,6 +28,9 @@ install: go.sum
 	@echo "installing autox binary..."
 	@go install -mod=readonly $(BUILD_FLAGS) ./cmd/autox
 
+proto-gen:
+	@scripts/protocgen.sh
+
 ###############################################################################
 # Tests / CI
 ###############################################################################

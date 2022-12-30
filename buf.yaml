@@ -1,0 +1,18 @@
+version: v1beta1
+name: buf.build/autonomynetwork/iam
+deps:
+  - buf.build/googleapis/googleapis
+build:
+  roots:
+    - proto
+
+lint:
+  use:
+    - BASIC
+    - DEFAULT
+    - FILE_LAYOUT
+    - MINIMAL
+    - PACKAGE_AFFINITY
+    - SENSIBLE
+    - STYLE_BASIC
+    - STYLE_DEFAULT
