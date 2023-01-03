@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: v1/bot/communities.proto
 
-package AutonomyNetwork
+package bot
 
 import (
 	context "context"

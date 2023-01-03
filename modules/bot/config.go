@@ -6,18 +6,21 @@ import (
 
 // Config contains the configuration about the bot module
 type Config struct {
-	TokenId string `yaml:"tokenId"`
+	TokenId  string `yaml:"tokenId"`
+	Tcp_port string `yaml:"tcp-port"`
 }
 
-func NewConfig(tokenId string) *Config {
+func NewConfig(tokenId string, tcp_port string) *Config {
 	return &Config{
-		TokenId: tokenId,
+		TokenId:  tokenId,
+		Tcp_port: tcp_port,
 	}
 }
 
 func DefaultConfig() *Config {
 	return &Config{
-		TokenId: "discord-bot-token-id",
+		TokenId:  "discord-bot-token-id",
+		Tcp_port: "tcp-port",
 	}
 }
 

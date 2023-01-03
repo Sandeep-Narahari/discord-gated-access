@@ -1,7 +1,7 @@
 syntax="proto3";
 package v1.bot;
 
-option go_package ="/home/sandeep/go/src/github.com/AutonomyNetwork/iam/github.com/AutonomyNetwork";
+option go_package ="github.com/AutonomyNetwork/iam/types/bot";
 import "google/api/annotations.proto";
 
 
@@ -78,7 +78,7 @@ message  CreateCommunityRequest {
 }
 
 message CreateCommunityResponse {
-  int64  id = 1;
+  string  gated_collection_id= 1;
 }
 
 message UpdateCommunityRequest{

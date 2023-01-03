@@ -9,7 +9,7 @@ import (
 )
 
 func (m *Module) Channels() {
-	fmt.Println("Session====================", m.session)
+	// fmt.Println("Session====================", m.session)
 	c, err := m.session.GuildChannels("1010831009010425906")
 	if err != nil {
 		fmt.Println(err.Error())
@@ -91,23 +91,23 @@ func (m *Module) GetAddressAndValidate() {
 	})
 }
 
-func (m *Module) VerifyNft(address []string, gatedList []string) {
-	var nfts = Nfts()
-	var Gated = m.db.GetGatedList()
-	for i, nft := range nfts {
-		for j, c := range Gated {
-			if strings.HasPrefix(nft, Gated[j].Collection_id) {
-				var discordid = m.db.GetDiscordId(nft[i].Address)
-				var roleId = Gated[j].Roleid
-				m.SetRoleIdToUser(discordid, roleId)
+// func (m *Module) VerifyNft(address []string, gatedList []string) {
+// 	var nfts = Nfts()
+// 	var Gated = m.db.GetGatedList()
+// 	for i, nft := range nfts {
+// 		for j, c := range Gated {
+// 			if strings.HasPrefix(nft, Gated[j].Collection_id) {
+// 				var discordid = m.db.GetDiscordId(nft[i].Address)
+// 				var roleId = Gated[j].Roleid
+// 				m.SetRoleIdToUser(discordid, roleId)
 
-				fmt.Println(nft, c, "Hey you got your role , Congragulations")
+// 				fmt.Println(nft, c, "Hey you got your role , Congragulations")
 
-				break
-			}
-		}
-	}
-}
+// 				break
+// 			}
+// 		}
+// 	}
+// }
 func (m *Module) SetRoleIdToUser(discordId string, roleId string) {
 	err := m.session.GuildMemberRoleAdd("1010831009010425906", "1022444713753714689", "1044225010157498429")
 	if err == nil {

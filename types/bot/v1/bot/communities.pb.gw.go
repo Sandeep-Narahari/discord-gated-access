@@ -2,11 +2,11 @@
 // source: v1/bot/communities.proto
 
 /*
-Package AutonomyNetwork is a reverse proxy.
+Package bot is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package AutonomyNetwork
+package bot
 
 import (
 	"context"

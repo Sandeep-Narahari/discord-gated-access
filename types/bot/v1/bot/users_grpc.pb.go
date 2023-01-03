@@ -38,7 +38,7 @@ func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
 
 func (c *userServiceClient) CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
 	out := new(CreateUserResponse)
-	err := c.cc.Invoke(ctx, "/v1.UserService/CreateUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v1.bot.UserService/CreateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func (c *userServiceClient) CreateUser(ctx context.Context, in *CreateUserReques
 
 func (c *userServiceClient) Users(ctx context.Context, in *GetUsersRequest, opts ...grpc.CallOption) (*GetUsersResponse, error) {
 	out := new(GetUsersResponse)
-	err := c.cc.Invoke(ctx, "/v1.UserService/Users", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v1.bot.UserService/Users", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func (c *userServiceClient) Users(ctx context.Context, in *GetUsersRequest, opts
 
 func (c *userServiceClient) UserByDiscordID(ctx context.Context, in *GetUserByDiscordIDRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
 	out := new(GetUserResponse)
-	err := c.cc.Invoke(ctx, "/v1.UserService/UserByDiscordID", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v1.bot.UserService/UserByDiscordID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func (c *userServiceClient) UserByDiscordID(ctx context.Context, in *GetUserByDi
 
 func (c *userServiceClient) UserByAccountAddress(ctx context.Context, in *GetUserByAccountAddressRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
 	out := new(GetUserResponse)
-	err := c.cc.Invoke(ctx, "/v1.UserService/UserByAccountAddress", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v1.bot.UserService/UserByAccountAddress", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +122,7 @@ func _UserService_CreateUser_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v1.UserService/CreateUser",
+		FullMethod: "/v1.bot.UserService/CreateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).CreateUser(ctx, req.(*CreateUserRequest))
@@ -140,7 +140,7 @@ func _UserService_Users_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v1.UserService/Users",
+		FullMethod: "/v1.bot.UserService/Users",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).Users(ctx, req.(*GetUsersRequest))
@@ -158,7 +158,7 @@ func _UserService_UserByDiscordID_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v1.UserService/UserByDiscordID",
+		FullMethod: "/v1.bot.UserService/UserByDiscordID",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).UserByDiscordID(ctx, req.(*GetUserByDiscordIDRequest))
@@ -176,7 +176,7 @@ func _UserService_UserByAccountAddress_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v1.UserService/UserByAccountAddress",
+		FullMethod: "/v1.bot.UserService/UserByAccountAddress",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).UserByAccountAddress(ctx, req.(*GetUserByAccountAddressRequest))
@@ -188,7 +188,7 @@ func _UserService_UserByAccountAddress_Handler(srv interface{}, ctx context.Cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "v1.UserService",
+	ServiceName: "v1.bot.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
